@@ -9,18 +9,19 @@ import {
 export const fetchLocations = ({ perPage }) => async dispatch => {
   dispatch({ type: FETCH_LOCATIONS });
   try {
-    const options = {
-      headers: {
-        'api-version': 2,
-        Accept: 'application/json',
-      },
-    };
+    const getLocations = page =>
+      axios.get(
+        `https://api.silvercar.com/locations?page=${page}&per_page=${perPage}`,
+        {
+          headers: {
+            'api-version': 2,
+            Accept: 'application/json',
+          },
+        }
+      );
 
-    // make the initial request with page 1 with per page paramenter
-    const initialRequest = await axios.get(
-      `https://api.silvercar.com/locations?page=1&per_page=${perPage}`,
-      options
-    );
+    // make the initial request with page 1 and per page paramenter
+    const initialRequest = await getLocations(1);
     const {
       headers: { page, total },
     } = initialRequest;
@@ -36,12 +37,7 @@ export const fetchLocations = ({ perPage }) => async dispatch => {
     // if more pages are available, push the axios method into the requestArray
     if (totalPage > pageInt) {
       for (let i = pageInt + 1; i <= totalPage; i++) {
-        requestArray.push(
-          await axios.get(
-            `https://api.silvercar.com/locations?page=${i}&per_page=${perPage}`,
-            options
-          )
-        );
+        requestArray.push(getLocations(i));
       }
     }
 
