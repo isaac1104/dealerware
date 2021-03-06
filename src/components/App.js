@@ -1,20 +1,23 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLocations } from '../actions';
+import Loader from './Loader/Loader';
+import Navbar from './Navbar/Navbar';
 
 const App = () => {
   const dispatch = useDispatch();
-  const locationsData = useSelector(state => state.locations);
+  const { isLoading, error, data } = useSelector(state => state.locations);
 
   useEffect(() => {
     dispatch(fetchLocations());
   }, [dispatch]);
 
-  console.log(locationsData);
+  console.log(data);
 
   return (
     <div>
-      <h1>App</h1>
+      <Navbar />
+      {isLoading && <Loader />}
     </div>
   );
 };
