@@ -15,7 +15,9 @@ const socialMenu = [{ title: 'Log In' }, { title: '|' }, { title: 'Sign Up' }];
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <img src={logo} alt='logo' className={styles.logo} />
+      <a href='https://www.silvercar.com'>
+        <img src={logo} alt='logo' className={styles.logo} />
+      </a>
       <div className={styles.menuContainer}>
         <div className={styles.menuContainer}>
           {menu.map(({ title }) => (

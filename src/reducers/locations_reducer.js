@@ -7,6 +7,8 @@ import {
 const INITIAL_STATE = {
   isLoading: false,
   data: [],
+  total: null,
+  pageSize: null,
   error: null,
 };
 
@@ -21,7 +23,9 @@ const locationsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload.filter(({ bookable }) => bookable),
+        data: action.payload.data,
+        total: action.payload.headers.total,
+        pageSize: action.payload.headers['per-page'],
         error: null,
       };
     case FETCH_LOCATIONS_ERROR:
@@ -29,6 +33,8 @@ const locationsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading: false,
         data: [],
+        total: null,
+        pageSize: null,
         error: action.payload,
       };
     default:

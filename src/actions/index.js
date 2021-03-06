@@ -6,11 +6,11 @@ import {
   SEARCH_LOCATION,
 } from './types';
 
-export const fetchLocations = () => async dispatch => {
+export const fetchLocations = ({ page }) => async dispatch => {
   dispatch({ type: FETCH_LOCATIONS });
   try {
     const request = await axios.get(
-      `https://api.silvercar.com/locations?page=1&per_page=100`,
+      `https://api.silvercar.com/locations?page=${page}&per_page=100`,
       {
         headers: {
           'api-version': 2,
@@ -18,7 +18,7 @@ export const fetchLocations = () => async dispatch => {
         },
       }
     );
-    dispatch({ type: FETCH_LOCATIONS_COMPLETE, payload: request.data });
+    dispatch({ type: FETCH_LOCATIONS_COMPLETE, payload: request });
   } catch (err) {
     dispatch({ type: FETCH_LOCATIONS_ERROR, payload: err.message });
   }

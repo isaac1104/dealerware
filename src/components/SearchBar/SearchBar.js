@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import SearchRounded from '@material-ui/icons/SearchRounded';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { searchLocation } from '../../actions';
+import styles from './SearchBar.module.css';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const SearchBar = () => {
     <div>
       <TextField
         multiline
+        className={styles.searchbar}
         label='Where are you headed'
         placeholder='Airport or City'
         InputProps={{

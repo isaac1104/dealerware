@@ -22,7 +22,7 @@ const Location = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchLocations());
+    dispatch(fetchLocations({ page: 1 }));
   }, [dispatch]);
 
   if (error) return <Typography>{error}</Typography>;
