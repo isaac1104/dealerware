@@ -13,16 +13,16 @@ const Location = () => {
   const search = useSelector(state => state.search);
 
   const airportsData = data.filter(
-    ({ airport_code, name }) =>
-      airport_code && name.toLowerCase().includes(search)
+    ({ airport_code, bookable, name }) =>
+      airport_code && bookable && name.toLowerCase().includes(search)
   );
   const inTownData = data.filter(
-    ({ airport_code, name }) =>
-      !airport_code && name.toLowerCase().includes(search)
+    ({ airport_code, bookable, name }) =>
+      !airport_code && bookable && name.toLowerCase().includes(search)
   );
 
   useEffect(() => {
-    dispatch(fetchLocations({ page: 1 }));
+    dispatch(fetchLocations({ perPage: 100 }));
   }, [dispatch]);
 
   if (error) return <Typography>{error}</Typography>;
