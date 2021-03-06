@@ -8,12 +8,15 @@ import {
 export const fetchLocations = () => async dispatch => {
   dispatch({ type: FETCH_LOCATIONS });
   try {
-    const request = await axios.get('https://api.silvercar.com/locations', {
-      headers: {
-        'api-version': 2,
-        Accept: 'application/json',
-      },
-    });
+    const request = await axios.get(
+      `https://api.silvercar.com/locations?page=1&per_page=100`,
+      {
+        headers: {
+          'api-version': 2,
+          Accept: 'application/json',
+        },
+      }
+    );
     dispatch({ type: FETCH_LOCATIONS_COMPLETE, payload: request.data });
   } catch (err) {
     dispatch({ type: FETCH_LOCATIONS_ERROR, payload: err.message });
