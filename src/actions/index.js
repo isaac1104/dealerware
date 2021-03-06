@@ -3,6 +3,7 @@ import {
   FETCH_LOCATIONS,
   FETCH_LOCATIONS_COMPLETE,
   FETCH_LOCATIONS_ERROR,
+  SEARCH_LOCATION,
 } from './types';
 
 export const fetchLocations = () => async dispatch => {
@@ -22,3 +23,8 @@ export const fetchLocations = () => async dispatch => {
     dispatch({ type: FETCH_LOCATIONS_ERROR, payload: err.message });
   }
 };
+
+export const searchLocation = term => ({
+  type: SEARCH_LOCATION,
+  payload: term,
+});

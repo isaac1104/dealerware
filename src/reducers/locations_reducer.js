@@ -21,7 +21,7 @@ const locationsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isLoading: false,
-        data: action.payload,
+        data: action.payload.filter(({ bookable }) => bookable),
         error: null,
       };
     case FETCH_LOCATIONS_ERROR:

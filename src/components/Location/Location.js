@@ -10,20 +10,20 @@ import styles from './Location.module.css';
 const Location = () => {
   const dispatch = useDispatch();
   const { isLoading, error, data } = useSelector(state => state.locations);
+  const search = useSelector(state => state.search);
 
   const airportsData = data.filter(
-    ({ airport_code, bookable }) => airport_code && bookable
+    ({ airport_code, name }) =>
+      airport_code && name.toLowerCase().includes(search)
   );
   const inTownData = data.filter(
-    ({ airport_code, bookable }) => !airport_code && bookable
+    ({ airport_code, name }) =>
+      !airport_code && name.toLowerCase().includes(search)
   );
 
   useEffect(() => {
     dispatch(fetchLocations());
   }, [dispatch]);
-
-  console.log('AIRPORT: ', airportsData);
-  console.log('IN TOWN: ', inTownData);
 
   if (error) return <Typography>{error}</Typography>;
 
@@ -32,22 +32,26 @@ const Location = () => {
   if (!isLoading && data.length > 0) {
     return (
       <Grid container spacing={3} className={styles.container}>
-        <Grid item xs={12} md={4}>
-          <Typography variant='h4' gutterBottom>
-            Airports
-          </Typography>
-          {airportsData.map(data => (
-            <LocationItem key={data.id} data={data} />
-          ))}
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Typography variant='h4' gutterBottom>
-            In Town
-          </Typography>
-          {inTownData.map(data => (
-            <LocationItem key={data.id} data={data} />
-          ))}
-        </Grid>
+        {airportsData.length > 0 && (
+          <Grid item xs={12} md={4}>
+            <Typography variant='h4' gutterBottom>
+              Airports
+            </Typography>
+            {airportsData.map(data => (
+              <LocationItem key={data.id} data={data} />
+            ))}
+          </Grid>
+        )}
+        {inTownData.length > 0 && (
+          <Grid item xs={12} md={4}>
+            <Typography variant='h4' gutterBottom>
+              In Town
+            </Typography>
+            {inTownData.map(data => (
+              <LocationItem key={data.id} data={data} />
+            ))}
+          </Grid>
+        )}
       </Grid>
     );
   }
