@@ -1,14 +1,14 @@
 import axios from 'axios';
 import {
-  FETCH_LOCATIONS,
-  FETCH_LOCATIONS_COMPLETE,
-  FETCH_LOCATIONS_ERROR,
+  FETCH_LOCATIONS_REQUEST,
+  FETCH_LOCATIONS_REQUEST_COMPLETE,
+  FETCH_LOCATIONS_REQUEST_ERROR,
   SEARCH_LOCATION,
   CLEAR_SEARCH,
 } from './types';
 
 export const fetchLocations = ({ perPage }) => async dispatch => {
-  dispatch({ type: FETCH_LOCATIONS });
+  dispatch({ type: FETCH_LOCATIONS_REQUEST });
   try {
     const getLocations = page =>
       axios.get(
@@ -51,9 +51,9 @@ export const fetchLocations = ({ perPage }) => async dispatch => {
     // merge all arrays into one
     const data = [...initialRequest.data, ...mergedData];
 
-    dispatch({ type: FETCH_LOCATIONS_COMPLETE, payload: data });
+    dispatch({ type: FETCH_LOCATIONS_REQUEST_COMPLETE, payload: data });
   } catch (err) {
-    dispatch({ type: FETCH_LOCATIONS_ERROR, payload: err.message });
+    dispatch({ type: FETCH_LOCATIONS_REQUEST_ERROR, payload: err.message });
   }
 };
 

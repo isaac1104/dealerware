@@ -1,7 +1,7 @@
 import {
-  FETCH_LOCATIONS,
-  FETCH_LOCATIONS_COMPLETE,
-  FETCH_LOCATIONS_ERROR,
+  FETCH_LOCATIONS_REQUEST,
+  FETCH_LOCATIONS_REQUEST_COMPLETE,
+  FETCH_LOCATIONS_REQUEST_ERROR,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -12,19 +12,19 @@ const INITIAL_STATE = {
 
 const locationsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case FETCH_LOCATIONS:
+    case FETCH_LOCATIONS_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
-    case FETCH_LOCATIONS_COMPLETE:
+    case FETCH_LOCATIONS_REQUEST_COMPLETE:
       return {
         ...state,
         isLoading: false,
         data: action.payload,
         error: null,
       };
-    case FETCH_LOCATIONS_ERROR:
+    case FETCH_LOCATIONS_REQUEST_ERROR:
       return {
         ...state,
         isLoading: false,
