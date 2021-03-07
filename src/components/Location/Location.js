@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchLocations } from '../../actions';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import AirplanemodeActive from '@material-ui/icons/AirplanemodeActive';
+import Business from '@material-ui/icons/Business';
 import LocationItem from '../LocationItem';
 import Loader from '../Loader';
 import styles from './Location.module.css';
@@ -35,7 +37,7 @@ const Location = () => {
         {airportsData.length > 0 && (
           <Grid item xs={12} md={4}>
             <Typography variant='h4' gutterBottom>
-              Airports
+              <AirplanemodeActive /> Airports
             </Typography>
             {airportsData.map(data => (
               <LocationItem key={data.id} data={data} />
@@ -45,7 +47,7 @@ const Location = () => {
         {inTownData.length > 0 && (
           <Grid item xs={12} md={4}>
             <Typography variant='h4' gutterBottom>
-              In Town
+              <Business /> In Town
             </Typography>
             {inTownData.map(data => (
               <LocationItem key={data.id} data={data} />
