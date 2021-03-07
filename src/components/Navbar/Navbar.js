@@ -16,9 +16,9 @@ const menu = [
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <a href='https://www.silvercar.com'>
+      <Link href='https://www.silvercar.com'>
         <img src={logo} alt='logo' className={styles.logo} />
-      </a>
+      </Link>
       <div className={styles.menuContainer}>
         <div className={styles.menuContainer}>
           {menu.map(({ title, href }) => (
