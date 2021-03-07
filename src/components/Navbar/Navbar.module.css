@@ -1,0 +1,29 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 2rem 0;
+}
+
+.logo {
+  height: 1.7rem;
+}
+
+.menuContainer {
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  color: #000000 !important;
+  margin: 1rem 1.5rem 0 0 !important;
+}
+
+.link:hover {
+  border-bottom: 0.2rem solid #000000;
+  font-weight: 500;
+}
+
+.menuTitle {
+  font-size: 14px;
+}

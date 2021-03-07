@@ -1,0 +1,26 @@
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 30px;
+}
+
+.content {
+  border-top: 1px solid rgb(255, 255, 255);
+  height: 5rem;
+  margin-left: 56px;
+  margin-right: 56px;
+}
+
+.content,
+.contentRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  color: #ffffff !important;
+  margin: 1rem 1rem 0 0 !important;
+}

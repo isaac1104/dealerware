@@ -1,0 +1,8 @@
+.searchbar {
+  width: 28rem;
+  margin-bottom: 2rem !important;
+}
+
+.closeBtn {
+  cursor: pointer;
+}
