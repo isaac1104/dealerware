@@ -39,30 +39,28 @@ const SearchBar = () => {
   }, [dispatch, searchTerm]);
 
   return (
-    <div>
-      <TextField
-        multiline
-        className={`${styles.searchbar} ${classes.textField}`}
-        value={searchTerm}
-        label='Where are you headed?'
-        placeholder='Airport or City'
-        onChange={handleSearch}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position='end'>
-              {search ? (
-                <CloseOutlined
-                  className={styles.closeBtn}
-                  onClick={handleClear}
-                />
-              ) : (
-                <SearchRounded />
-              )}
-            </InputAdornment>
-          ),
-        }}
-      />
-    </div>
+    <TextField
+      multiline
+      className={`${styles.searchbar} ${classes.textField}`}
+      value={searchTerm}
+      label='Where are you headed?'
+      placeholder='Airport or City'
+      onChange={handleSearch}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position='end'>
+            {search ? (
+              <CloseOutlined
+                className={styles.closeBtn}
+                onClick={handleClear}
+              />
+            ) : (
+              <SearchRounded />
+            )}
+          </InputAdornment>
+        ),
+      }}
+    />
   );
 };
 

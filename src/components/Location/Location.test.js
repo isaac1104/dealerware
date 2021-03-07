@@ -1,3 +1,4 @@
+import React from 'react';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -18,11 +19,13 @@ const store = createStore(
 );
 
 describe('Location', () => {
-  test('renders with locations props', () => {
-    render(
+  it('should contain className container', () => {
+    const rendered = render(
       <Provider store={store}>
         <Location />
       </Provider>
     );
+    const div = rendered.container.querySelector('div');
+    expect(div.className).toBe('container');
   });
 });
