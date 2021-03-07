@@ -1,7 +1,9 @@
-# Takehome Exercise for Dealerware
+# Takehome Exercise for Dealerware.
 
-### Run the following commands to start the app
+### Run the following commands to start the app.
 
-`yarn` to install the dependencies
+`yarn` to install the dependencies.
 
 `yarn start` to start the app. The app will open on http://localhost:3000
+
+`yar test` to test the app.
