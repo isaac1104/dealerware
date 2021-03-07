@@ -1,0 +1,11 @@
+.appContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 90rem;
+  margin-left: 32px;
+  margin-right: 32px;
+}

@@ -7,7 +7,6 @@ import AirplanemodeActive from '@material-ui/icons/AirplanemodeActive';
 import Business from '@material-ui/icons/Business';
 import LocationItem from '../LocationItem';
 import Loader from '../Loader';
-import styles from './Location.module.css';
 
 const Location = () => {
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ const Location = () => {
 
   if (!isLoading && data.length > 0) {
     return (
-      <Grid container spacing={3} className={styles.container}>
+      <Grid container spacing={3}>
         {airportsData.length > 0 && (
           <Grid item xs={12} md={4}>
             <Typography variant='h4' gutterBottom>
