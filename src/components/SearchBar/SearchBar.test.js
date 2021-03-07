@@ -1,3 +1,4 @@
+import React from 'react';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -14,11 +15,13 @@ const store = createStore(
 );
 
 describe('SearchBar', () => {
-  test('renders with search props', () => {
-    render(
+  it('should contain MuiTextField', () => {
+    const rendered = render(
       <Provider store={store}>
         <SearchBar />
       </Provider>
     );
+    const textField = rendered.container.querySelector('div');
+    expect(textField.className).toContain('MuiTextField-root');
   });
 });
