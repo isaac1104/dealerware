@@ -2,15 +2,16 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import styles from './Navbar.module.css';
 import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 
 const menu = [
-  { title: 'How it Works' },
-  { title: 'Locations' },
-  { title: 'Vehicles' },
+  { title: 'How it Works', href: 'https://www.silvercar.com/how-it-works' },
+  { title: 'Locations', href: 'https://www.silvercar.com/car-rentals/' },
+  { title: 'Vehicles', href: 'https://www.silvercar.com/fleet/' },
   { title: 'Help' },
+  { title: 'Log In', href: 'https://app.silvercar.com/login' },
+  { title: 'Sign Up', href: 'https://app.silvercar.com/signup' },
 ];
-
-const socialMenu = [{ title: 'Log In' }, { title: '|' }, { title: 'Sign Up' }];
 
 const Navbar = () => {
   return (
@@ -20,17 +21,16 @@ const Navbar = () => {
       </a>
       <div className={styles.menuContainer}>
         <div className={styles.menuContainer}>
-          {menu.map(({ title }) => (
-            <span key={title} className={styles.menu}>
-              <Typography>{title}</Typography>
-            </span>
-          ))}
-        </div>
-        <div className={styles.menuContainer}>
-          {socialMenu.map(({ title }) => (
-            <span key={title} className={styles.menu}>
-              <Typography>{title}</Typography>
-            </span>
+          {menu.map(({ title, href }) => (
+            <Typography
+              key={title}
+              className={styles.menuTitle}
+              variant='body2'
+            >
+              <Link href={href} className={styles.link} underline='none'>
+                {title}
+              </Link>
+            </Typography>
           ))}
         </div>
       </div>

@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import AirplanemodeActive from '@material-ui/icons/AirplanemodeActive';
 import Business from '@material-ui/icons/Business';
+import SearchBar from '../SearchBar';
 import LocationItem from '../LocationItem';
 import Loader from '../Loader';
 
@@ -32,28 +33,31 @@ const Location = () => {
 
   if (!isLoading && data.length > 0) {
     return (
-      <Grid container spacing={3}>
-        {airportsData.length > 0 && (
-          <Grid item xs={12} md={4}>
-            <Typography variant='h4' gutterBottom>
-              <AirplanemodeActive /> Airports
-            </Typography>
-            {airportsData.map(data => (
-              <LocationItem key={data.id} data={data} />
-            ))}
-          </Grid>
-        )}
-        {inTownData.length > 0 && (
-          <Grid item xs={12} md={4}>
-            <Typography variant='h4' gutterBottom>
-              <Business /> In Town
-            </Typography>
-            {inTownData.map(data => (
-              <LocationItem key={data.id} data={data} />
-            ))}
-          </Grid>
-        )}
-      </Grid>
+      <>
+        <SearchBar />
+        <Grid container spacing={3}>
+          {airportsData.length > 0 && (
+            <Grid item xs={12} md={4}>
+              <Typography variant='h4' gutterBottom>
+                <AirplanemodeActive /> Airports
+              </Typography>
+              {airportsData.map(data => (
+                <LocationItem key={data.id} data={data} />
+              ))}
+            </Grid>
+          )}
+          {inTownData.length > 0 && (
+            <Grid item xs={12} md={4}>
+              <Typography variant='h4' gutterBottom>
+                <Business /> In Town
+              </Typography>
+              {inTownData.map(data => (
+                <LocationItem key={data.id} data={data} />
+              ))}
+            </Grid>
+          )}
+        </Grid>
+      </>
     );
   }
 

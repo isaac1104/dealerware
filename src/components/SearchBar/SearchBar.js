@@ -28,7 +28,7 @@ const SearchBar = () => {
         multiline
         className={styles.searchbar}
         value={searchTerm}
-        label='Where are you headed'
+        label='Where are you headed?'
         placeholder='Airport or City'
         onChange={handleSearch}
         InputProps={{
