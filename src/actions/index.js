@@ -4,6 +4,7 @@ import {
   FETCH_LOCATIONS_COMPLETE,
   FETCH_LOCATIONS_ERROR,
   SEARCH_LOCATION,
+  CLEAR_SEARCH,
 } from './types';
 
 export const fetchLocations = ({ perPage }) => async dispatch => {
@@ -59,4 +60,8 @@ export const fetchLocations = ({ perPage }) => async dispatch => {
 export const searchLocation = term => ({
   type: SEARCH_LOCATION,
   payload: term,
+});
+
+export const clearSearch = () => ({
+  type: CLEAR_SEARCH,
 });

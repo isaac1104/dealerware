@@ -2,3 +2,7 @@
   width: 23%;
   margin-bottom: 2rem !important;
 }
+
+.closeBtn {
+  cursor: pointer;
+}
