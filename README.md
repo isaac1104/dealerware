@@ -1,6 +1,6 @@
 # Takehome Exercise for Dealerware.
 
-### Run the following commands to start the app.
+### Available commands.
 
 `yarn` to install the dependencies.
 
