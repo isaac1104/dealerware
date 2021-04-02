@@ -44,7 +44,7 @@ const SearchBar = () => {
       className={`${styles.searchbar} ${classes.textField}`}
       value={searchTerm}
       label='Where are you headed?'
-      placeholder='Airport or City.'
+      placeholder='Airport or City'
       onChange={handleSearch}
       InputProps={{
         endAdornment: (
