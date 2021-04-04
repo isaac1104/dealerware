@@ -1,29 +1,14 @@
 import React from 'react';
-import { applyMiddleware, createStore } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 import { render } from '@testing-library/react';
 import Location from './Location';
-import rootReducer from '../../reducers';
-
-const store = createStore(
-  rootReducer,
-  {
-    locations: {
-      isLoading: false,
-      data: [],
-      error: null,
-    },
-  },
-  applyMiddleware(thunk)
-);
+import Root from '../../Root';
 
 describe('Location', () => {
   it('should contain className container', () => {
     const rendered = render(
-      <Provider store={store}>
+      <Root>
         <Location />
-      </Provider>
+      </Root>
     );
     const div = rendered.container.querySelector('div');
     expect(div.className).toBe('container');
