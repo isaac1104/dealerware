@@ -33,7 +33,7 @@ const Footer = () => {
               variant='caption'
             >
               <Link href={href} className={styles.link} underline='none'>
-                {title}
+                {title}!
               </Link>
             </Typography>
           ))}
